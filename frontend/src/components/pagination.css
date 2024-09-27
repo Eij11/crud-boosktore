@@ -1,0 +1,9 @@
+.pagination-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 20vh; /* Ensure it takes up the full height */
+}
+
+.mt-auto {
+  margin-top: auto; /* Pushes pagination to the bottom */
+}
