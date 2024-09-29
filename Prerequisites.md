@@ -82,6 +82,12 @@ createRoot(document.getElementById("root")).render(
 );
 ```
 
+### `npm install @coreui/react @coreui/coreui`
+
+### `npm install @coreui/icons-react @coreui/icons`
+
+- for da dashboard
+
 =====================================================================================
 
 # BACK END - SERVER
