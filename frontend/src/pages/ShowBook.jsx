@@ -14,7 +14,7 @@ const ShowBook = () => {
     setLoading(true);
 
     axios
-      .get(`http://localhost:5000/api/books/${id}`)
+      .get(`http://localhost:5100/api/books/${id}`)
       .then((res) => {
         setBook(res.data);
         console.log("Book set:", res.data);

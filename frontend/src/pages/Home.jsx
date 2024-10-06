@@ -39,7 +39,7 @@ const Home = () => {
 
   //pagination
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(8);
+  const postsPerPage = 2;
 
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
@@ -49,7 +49,7 @@ const Home = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("http://localhost:5000/api/books")
+      .get("http://localhost:5100/api/books")
       .then((res) => {
         console.log("Api response:", res.data);
         setBooks(res.data);

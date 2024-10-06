@@ -26,7 +26,7 @@ const EditBook = () => {
 
     setLoading(true);
     axios
-      .put(`http://localhost:5000/api/books/${id}`, data)
+      .put(`http://localhost:5100/api/books/${id}`, data)
       .then(() => {
         setLoading(false);
         enqueueSnackbar("Book editted succesfully!", { variant: "success" });
@@ -47,7 +47,7 @@ const EditBook = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:5000/api/books/${id}`)
+      .get(`http://localhost:5100/api/books/${id}`)
       .then((res) => {
         setTitle(res.data.title);
         setAuthor(res.data.author);

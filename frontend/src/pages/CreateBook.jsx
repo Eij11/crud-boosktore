@@ -25,6 +25,11 @@ const CreateBook = () => {
     // Generate a preview URL for the selected image
     setImagePreview(URL.createObjectURL(file));
   };
+
+  //on onChange, better readability
+  const handleSetTitle = (event) => {
+    setTitle(event.target.value);
+  };
   const handleSaveBook = (e) => {
     console.log(bookImage);
     const formData = new FormData();
@@ -37,14 +42,9 @@ const CreateBook = () => {
       formData.append("bookImage", bookImage);
     }
 
-    //on onChange, better readability
-    const handleSetTitle = (event) => {
-      setTitle(event.target.value);
-    };
-
     setLoading(true);
     axios
-      .post("http://localhost:5000/api/books", formData, {
+      .post("http://localhost:5100/api/books", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -57,7 +57,7 @@ const CreateBook = () => {
       })
       .catch((error) => {
         setLoading(false);
-        enqueueSnackbar("Error", { variant: "error" });
+        enqueueSnackbar("Error:", { variant: "error" });
         console.log(error);
       });
   };
@@ -147,7 +147,7 @@ const CreateBook = () => {
                   alt="Book Preview"
                   style={{
                     width: "100%",
-                    maxHeight: "300px",
+                    maxHeight: "400px",
                     objectFit: "contain",
                   }}
                 />

@@ -1,4 +1,4 @@
-export const PORT = 5000;
+export const PORT = 5100;
 
 //                                                                  specify db name: 'test' is the default
 //"mongodb+srv://admin123:admin123@bookstore-mern.igyzi.mongodb.net/<database_name>?retryWrites=true&w=majority&appName=Bookstore-MERN";

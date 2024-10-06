@@ -92,7 +92,7 @@ const BooksTable = ({ books, search, selectedGenre }) => {
             ))
         ) : (
           <tr>
-            <td colSpan="5" className="text-center">
+            <td colSpan="12" className="text-center">
               No books available
             </td>
           </tr>

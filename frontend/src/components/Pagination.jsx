@@ -11,10 +11,17 @@ const Pagination = ({
 }) => {
   let pages = [];
 
+  const totalPages = Math.ceil(totalPosts / postsPerPage);
+
+  // Calculate the start and end page numbers for the pagination window
+  const startPage = Math.max(1, currentPage - 1);
+  const endPage = Math.min(totalPages, currentPage + 1);
+
   //                100/10 = 10 pages
-  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
+  for (let i = startPage; i <= endPage; i++) {
     pages.push(i);
   }
+
   return (
     <div className="pagination-container d-flex flex-column">
       <div className="d-flex justify-content-center mt-auto">
@@ -39,10 +46,10 @@ const Pagination = ({
           <BootstrapPagination.Next
             onClick={() =>
               setCurrentPage(
-                currentPage < pages.length ? currentPage + 1 : pages.length
+                currentPage < totalPages ? currentPage + 1 : totalPages
               )
             }
-            disabled={currentPage === pages.length}
+            disabled={currentPage === totalPages}
           />
         </BootstrapPagination>
       </div>
