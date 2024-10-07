@@ -55,7 +55,7 @@ const BooksTable = ({ books, search, selectedGenre }) => {
                 <td className="border border-dark rounded p-2 text-center d-none d-md-table-cell">
                   {book.bookImage ? (
                     <img
-                      src={`http://localhost:5000/uploads/${book.bookImage}`}
+                      src={`http://localhost:5100/uploads/${book.bookImage}`}
                       alt={book.title}
                       style={{ width: "50px", height: "50px" }}
                     />

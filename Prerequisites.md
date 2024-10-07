@@ -170,7 +170,15 @@ You need Multer to handle the image upload on the backend.
 - cmd: git --version
 - .`gitignore: node_modules so that it wont be push in the repo
 
-## index.js
+### `npm i bcrypt`
+
+A library to help you hash passwords.
+
+### `npm i jsonwebtoken`
+
+An implementation of JSON Web Tokens.
+
+This was developed against draft-ietf-oauth-json-web-token-08. It makes use of node-jws
 
 ## SETUP MONGO DB
 

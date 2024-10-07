@@ -2,8 +2,10 @@ import express from "express";
 import mongoose from "mongoose";
 import { PORT, mongoCSTR } from "./config.js";
 import bookRoute from "./routes/book.route.js";
+import accountRoute from "./routes/account.route.js";
 import cors from "cors";
 import path from "path";
+
 // import { fileURLToPath } from "url";
 
 // // Get __dirname in ES module
@@ -32,6 +34,7 @@ app.use("/uploads", express.static(path.join("public", "uploads")));
 
 //Middleware: routes
 app.use("/api/books", bookRoute);
+app.use("/api/accounts", accountRoute);
 
 app.get("/", (req, res) => {
   console.log(req);

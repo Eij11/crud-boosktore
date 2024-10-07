@@ -14,12 +14,21 @@ import { AiOutlineEdit } from "react-icons/ai";
 import { BsInfoCircle } from "react-icons/bs";
 import { MdOutlineAddBox, MdOutlineDelete } from "react-icons/md";
 import { MdCancel } from "react-icons/md";
+import Header from "../components/Header";
 
 const Home = () => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showType, setShowType] = useState("table");
+  const [isAdmin, setIsAdmin] = useState(false);
 
+  // Check if user is logged in and has the admin role
+  useEffect(() => {
+    const role = localStorage.getItem("role");
+    if (role === "admin") {
+      setIsAdmin(true); // Set state to true if user is an admin
+    }
+  }, []);
   //search function
   const [search, setSearch] = useState("");
   const handleSetSearch = (e) => {
@@ -64,6 +73,7 @@ const Home = () => {
 
   return (
     <div className="p-4">
+      <Header />
       <div className="d-flex justify-content-center text-center">
         <button
           type="button"
@@ -72,13 +82,15 @@ const Home = () => {
         >
           Table
         </button>
-        <button
-          type="button"
-          className="btn btn-outline-primary"
-          onClick={() => setShowType("card")}
-        >
-          Card
-        </button>
+        {isAdmin && (
+          <button
+            type="button"
+            className="btn btn-outline-primary "
+            onClick={() => setShowType("card")}
+          >
+            Card
+          </button>
+        )}
       </div>
 
       <form action="">
