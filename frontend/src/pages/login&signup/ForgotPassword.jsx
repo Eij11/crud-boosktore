@@ -5,23 +5,22 @@ import axios from "axios";
 import { useSnackbar } from "notistack";
 import { Link, useNavigate } from "react-router-dom";
 
-const Login = () => {
+const ForgotPassword = () => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
   //window pop ups
   const { enqueueSnackbar } = useSnackbar();
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleForgotPassword = (e) => {
     e.preventDefault();
 
     const data = {
       email,
-      password,
+      //   password,
     };
     axios
-      .post("http://localhost:5100/api/accounts/login", data)
+      .post("http://localhost:5100/api/accounts/forgot-password", data)
       .then((res) => {
         console.log(res);
         console.log("Backend Response:", res.data);
@@ -30,13 +29,11 @@ const Login = () => {
         localStorage.setItem("role", res.data.role); // Store the role (admin/user)
 
         if (res.data === "Success") {
-          navigate("/home");
-          enqueueSnackbar("Logged in succesfully!", { variant: "success" });
+          navigate("/login-account");
         }
         setEmail("");
-        setPassword("");
 
-        navigate("/home");
+        navigate("/login-account");
       })
       .catch((err) => {
         console.log(err);
@@ -48,10 +45,13 @@ const Login = () => {
 
   return (
     <div>
-      <div className=" container d-flex align-items-center justify-content-center vh-100 ">
+      <div
+        className=" container d-flex align-items-center justify-content-center vh-100 "
+        style={{ width: "30%" }}
+      >
         <div className="row p-5 shadow">
-          <h1>Login</h1>
-          <form onSubmit={handleLogin}>
+          <h1>Forgot Password</h1>
+          <form onSubmit={handleForgotPassword}>
             <div>
               <label className="form-label">Email Address</label>
               <input
@@ -64,7 +64,7 @@ const Login = () => {
                 required
               />
             </div>
-            <div className="mb-3">
+            {/* <div className="mb-3">
               <label className="form-label">Password</label>
               <input
                 type="password"
@@ -75,20 +75,11 @@ const Login = () => {
                 autoComplete="current-password"
                 required
               />
-            </div>
-            <button type="submit" className="btn btn-success flex-1 w-100">
-              Login
+            </div> */}
+            <button type="submit" className="btn btn-success flex-1 w-100 my-3">
+              Send Email
             </button>
             <Link to={"/register-account"}>Still don't have an account?</Link>
-
-            <br />
-
-            <Link
-              className="mt-2 text-decoration-underline text-primary"
-              to={"/forgot-password"}
-            >
-              Forgot Password
-            </Link>
           </form>
         </div>
       </div>
@@ -96,4 +87,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ForgotPassword;

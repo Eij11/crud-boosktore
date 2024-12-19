@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import Spinner from "../components/Spinner";
 // import BooksCard from "../home/BooksCard";
@@ -21,6 +22,8 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [showType, setShowType] = useState("table");
   const [isAdmin, setIsAdmin] = useState(false);
+
+  const navigate = useNavigate();
 
   // Check if user is logged in and has the admin role
   useEffect(() => {
@@ -71,9 +74,24 @@ const Home = () => {
       });
   }, []);
 
+  // Function to handle Login/Logout toggle
+  const handleLoginLogout = () => {
+    // Perform logout
+    localStorage.removeItem("token");
+    localStorage.removeItem("role");
+    navigate("/"); // Redirect to home or login page
+  };
+
   return (
     <div className="p-4">
       <Header />
+
+      <div className="d-flex justify-content-center my-5">
+        <button className="btn btn-primary " onClick={handleLoginLogout}>
+          Logout
+        </button>
+      </div>
+
       <div className="d-flex justify-content-center text-center">
         <button
           type="button"

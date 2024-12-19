@@ -12,17 +12,24 @@ import Login from "./pages/login&signup/Login";
 import Dashboard from "./pages/Dashboard";
 
 import ProtectedRoute from "./components/protectedRoute/ProtectedRoute";
+import ForgotPassword from "./pages/login&signup/ForgotPassword";
+import ResetPassword from "./pages/login&signup/ResetPassword";
 
 const App = () => {
   return (
     <Routes>
       <Route path="/register-account" element={<Signup />}></Route>
       <Route path="/login-account" element={<Login />}></Route>
+      <Route path="/forgot-password" element={<ForgotPassword />}></Route>
+      <Route
+        path="/reset-password/:id/:token"
+        element={<ResetPassword />}
+      ></Route>
 
       {/* ginagawa niyang default page yung login page */}
-      {/* <Route path="/" element={<Navigate to="/login-account" />} /> */}
+      <Route path="/" element={<Navigate to="/login-account" />} />
 
-      <Route path="/" element={<Navigate to="/home" />} />
+      {/* <Route path="/" element={<Navigate to="/home" />} /> */}
       <Route path="/home" element={<Home />} />
       <Route
         path="/mdrrmc/dashboard"

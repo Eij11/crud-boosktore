@@ -88,6 +88,10 @@ createRoot(document.getElementById("root")).render(
 
 - for da dashboard
 
+### `npm i vite-plugin-rewrite-all`
+
+- Vite plugin that fix dev server not rewriting the path includes a dot vite#2190
+
 =====================================================================================
 
 # BACK END - SERVER
@@ -180,7 +184,15 @@ An implementation of JSON Web Tokens.
 
 This was developed against draft-ietf-oauth-json-web-token-08. It makes use of node-jws
 
-## SETUP MONGO DB
+### `npm install nodemailer`
+
+For forgetting password
+
+https://www.w3schools.com/nodejs/nodejs_email.asp
+
+==========================================================
+
+# SETUP MONGO DB
 
 `login via google`: eljontangalin123@gmail.com
 

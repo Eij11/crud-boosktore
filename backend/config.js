@@ -6,3 +6,6 @@ export const mongoCSTR =
   "mongodb+srv://admin123:admin123@bookstore-mern.igyzi.mongodb.net/?retryWrites=true&w=majority&appName=Bookstore-MERN";
 
 export const JWT_SECRET = "secret12_34key_56kunyare";
+
+export const EMAIL_USER = "mdrrmc.paniqui.gov@gmail.com";
+export const EMAIL_PASS = "cbem dfao mnpf jbhm";
